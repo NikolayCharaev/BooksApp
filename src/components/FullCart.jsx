@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import cat from '../images/котик2.jpeg';
 import catGif from '../images/catGif.gif'
@@ -9,6 +9,8 @@ const FullCart = () => {
   const [cart, setFullCart] = useState([]);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false)
+
+  const navigate = useNavigate()
   
   useEffect(() => {
     async function fetchCart() {
@@ -18,6 +20,7 @@ const FullCart = () => {
           setFullCart(data.data);
           setText(
             data.data.volumeInfo.description
+            
           );
           setLoading(false)
         });
@@ -36,9 +39,11 @@ const FullCart = () => {
       <div className="container">
         <div className="cart__wrapper">
           {
-            <Link to="/">
-              <button className="close">назад</button>
-            </Link>
+            // <Link to="/">
+              <button className="close"
+               onClick={() => {navigate(-1)}}
+               >назад</button>
+            // </Link>
           }
           <div className="cart__left">
             <img className="cart__img" src={cartImage ? cartImage : cat} alt="not found" />
