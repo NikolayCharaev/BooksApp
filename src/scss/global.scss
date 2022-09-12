@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
+  overflow: hidden;
 }
 
 p {
@@ -58,6 +59,9 @@ p {
   border: none;
 }
 
+
+
+
 .white {
   color: #fff;
 }
@@ -73,4 +77,8 @@ a{
 
 .close{
   margin: 20px;
+}
+
+.mt-300{
+  margin-top: 300px;
 }

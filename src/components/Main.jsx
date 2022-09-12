@@ -1,33 +1,46 @@
-import React, { useEffect, useState,Component } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
 import { useLocation, Link, useParams } from 'react-router-dom';
 import Test from './ResponceServer';
+import cat from '../images/catGif.gif';
 
 import '../scss/styles.scss';
 const Header = () => {
   const location = useLocation();
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  function buttonPress (e) {
+  function buttonPress(e) {
     if (e.key === 'Enter') {
-      searchBook(e.target.value)
+      searchBook(e.target.value);
     }
   }
-  function searchBook ()  {
-    let maxResults = 8
+  function searchBook() {
+    let maxResults = 40;
+    let pagination = 8;
+    const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
+    console.log(location);
     axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${value}&key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY&maxResults=${maxResults}`,
-      )
-      .then((elem) => setBook(elem.data.items))
-      .catch((err) => console.log('Произошла ошибка... ' + err));
-  };
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${maxResults}`)
+      // .then((elem) => setBook(elem.data.items.slice(0, pagination)))
+      .then(elem => {
+        setLoading(true)
+        setBook(elem.data.items.slice(0, pagination))
+        setLoading(false)
+
+      })
+      .then((pagination += 8))
+      .catch((err) => {
+        setLoading(true)
+        console.log('Произошла ошибка... ' + err)
+      });
+  }
   return (
     <div className="header">
       <div className="container">
-        <div className="header__top">
+        <div className={book.length > 0 ? 'header__top' : 'header__center'}>
           <input
             className="search__input"
             type="text"
@@ -45,20 +58,25 @@ const Header = () => {
             найти
           </button>
         </div>
-          <div className="cart">
-            <div className="cart__inner">
-              <CartItem book={book} />
-            </div>
-            { 
-            book.length > 0 ? <button className='more__button' onClick={searchBook} >еще</button> : null
-          }
+
+        <div className={book.length > 0 ? 'cart' : ''}>
+        {loading === true ?  <img className='center ' src={cat}  alt="" /> : null}
+          <div className="cart__inner">
+          <CartItem book={book} /> 
           </div>
-       
-       
+          {book.length > 0 ? (
+            <button
+              className="more__button"
+              onClick={() => {
+                searchBook();
+              }}>
+              еще
+            </button>
+          ) : null}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Header;
-

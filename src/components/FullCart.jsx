@@ -2,31 +2,36 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import cat from '../images/котик2.jpeg';
+import catGif from '../images/catGif.gif'
 
 const FullCart = () => {
   const params = useParams();
   const { id } = useParams();
   const [cart, setFullCart] = useState([]);
   const [text, setText] = useState('');
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
     async function fetchCart() {
       try {
         await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then((data) => {
           console.log('data-then', data);
+          setLoading(true)
           setFullCart(data.data);
           setText(
             data.data.volumeInfo.description
           );
+          setLoading(false)
         });
       } catch (err) {
+        setLoading(true)
         console.log('Произошла ошибка, повторите попытку позже :(', err);
       }
     }
     fetchCart();
-  }, []);
+  },[]);
 
-  if (cart.length != 0) {
+  if (cart.length !== 0 && loading === false) {
     const cartInfo = cart.volumeInfo;
     const cartImage = cart.volumeInfo.imageLinks.thumbnail;
     return (
@@ -54,7 +59,13 @@ const FullCart = () => {
       
     );
   } else {
-    return <h1>Загрузка....</h1>;
+    return (
+      <div className="container">
+      <div className="cart__wrapper">
+          <img src={catGif} alt="cat" />
+        </div>
+        </div>
+    );
   }
 };
 

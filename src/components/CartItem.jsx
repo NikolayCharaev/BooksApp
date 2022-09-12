@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
 
 const CartItem = ({ book }) => {
-  console.log('BOOK', book);
   return (
     <>
-      {book.filter(elem => elem.volumeInfo.imageLinks).map((item) => {
-        const info = item.volumeInfo.imageLinks;
-        console.log(info)
+      {book.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description ).map((item,i) => {
+        const info = item.volumeInfo;
+        const infoImage = item.volumeInfo.imageLinks;
         return (
           <Link to={`/cart/${item.id}`}>
             <div className="cart__item">
               <img
                 className="cart__img"
                 src={
-                  info.smallThumbnail 
-                    ? info.smallThumbnail
-                    : info.thumbnail 
+                  infoImage.smallThumbnail 
+                    ? infoImage.smallThumbnail
+                    : infoImage.thumbnail 
                 }
                 alt="котик"
               />

@@ -1,18 +1,30 @@
+.header {
+  padding-top: 40px;
 
+  .header__logo {
+    text-decoration: none;
+    text-transform: lowercase;
+    color: lavenderblush;
+  }
 
-.header{
-    padding-top: 40px;
-    
-    .header__logo{
-        text-decoration: none;
-        text-transform: lowercase;
-        color: lavenderblush;
+  .header__top {
+    display: flex;
+    justify-content: center;
+  }
 
+  .header__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 400px;
+
+    input{
+        padding: 20px;
+        font-size: 20px;
     }
-
-    .header__top{
-        display: flex;
-        justify-content: center;
+    button{
+        padding: 23px;
     }
-
+  }
 }
