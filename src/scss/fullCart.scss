@@ -27,8 +27,7 @@
       max-width: 300px;
       width: 300px;
       height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
+      // object-fit: cover;
     }
 
     .cart__info {
@@ -62,7 +61,7 @@
   .cart__right {
     overflow: scroll;
     max-width: 500px;
-    max-height: 455px;
+    max-height: 480px;
     background-color: rgba(244, 244, 244, 0.9);
     padding: 15px;
     border-radius: 7px;

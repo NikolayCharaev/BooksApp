@@ -32,6 +32,24 @@ p {
   }
 }
 
+
+.more__button{
+  background-color: royalblue;
+  padding: 5px 30px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 20px auto;
+
+
+  &:hover {
+    background-color: rgb(48, 79, 173);
+  }
+}
+
 .search__input {
   width: 700px;
   padding: 4px;
@@ -46,11 +64,13 @@ p {
 .center {
   display: block;
   margin: 0 auto;
-  // width: 600px;
-  // height: 400px;
 }
 
 
 a{
   color: inherit;
+}
+
+.close{
+  margin: 20px;
 }

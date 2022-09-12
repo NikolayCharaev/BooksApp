@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,Component } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
-import cat from '../images/котик2.jpeg';
 import { useLocation, Link, useParams } from 'react-router-dom';
-import FullCart from './FullCart';
+import Test from './ResponceServer';
 
 import '../scss/styles.scss';
 const Header = () => {
   const location = useLocation();
-
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
-  const [id,setId] = useState('')
 
-  const searchBook = (elem) => {
+  function buttonPress (e) {
+    if (e.key === 'Enter') {
+      searchBook(e.target.value)
+    }
+  }
+  function searchBook ()  {
+    let maxResults = 8
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${value}&key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY`,
+        `https://www.googleapis.com/books/v1/volumes?q=${value}&key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY&maxResults=${maxResults}`,
       )
       .then((elem) => setBook(elem.data.items))
       .catch((err) => console.log('Произошла ошибка... ' + err));
@@ -31,10 +34,11 @@ const Header = () => {
             placeholder="поиск книги..."
             value={value}
             onChange={(e) => setValue(e.target.value)}
+            onKeyPress={buttonPress}
           />
           <button
             className="search__button"
-            onClick={() => {
+            onClick={(e) => {
               searchBook(value);
               setValue('');
             }}>
@@ -45,10 +49,16 @@ const Header = () => {
             <div className="cart__inner">
               <CartItem book={book} />
             </div>
+            { 
+            book.length > 0 ? <button className='more__button' onClick={searchBook} >еще</button> : null
+          }
           </div>
+       
+       
       </div>
     </div>
   );
 };
 
 export default Header;
+

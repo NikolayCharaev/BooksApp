@@ -4,18 +4,18 @@ const CartItem = ({ book }) => {
   console.log('BOOK', book);
   return (
     <>
-      {book.map((item, i) => {
-        // console.log('BOOK ITEM', item);
-        const info = item.volumeInfo;
+      {book.filter(elem => elem.volumeInfo.imageLinks).map((item) => {
+        const info = item.volumeInfo.imageLinks;
+        console.log(info)
         return (
           <Link to={`/cart/${item.id}`}>
             <div className="cart__item">
               <img
                 className="cart__img"
                 src={
-                  info.imageLinks.smallThumbnail 
-                    ? info.imageLinks.smallThumbnail
-                    : info.imageLinks.thumbnail
+                  info.smallThumbnail 
+                    ? info.smallThumbnail
+                    : info.thumbnail 
                 }
                 alt="котик"
               />

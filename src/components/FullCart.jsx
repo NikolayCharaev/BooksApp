@@ -16,7 +16,7 @@ const FullCart = () => {
           console.log('data-then', data);
           setFullCart(data.data);
           setText(
-            'Основной пищей для различных видов акул являются рыба, падаль, мелкие морские млекопитающие, планктон и ракообразные. К примеру, ламна, мако и голубая акулы питаются преимущественно морской рыбой пелагических видов, и форма их тонких острых зубов приспособлена для того, чтобы хватать добычу в движении.',
+            data.data.volumeInfo.description
           );
         });
       } catch (err) {
@@ -25,12 +25,10 @@ const FullCart = () => {
     }
     fetchCart();
   }, []);
-  console.log('cart', cart);
 
-  console.log('use-params', params);
   if (cart.length != 0) {
     const cartInfo = cart.volumeInfo;
-    const cartImage = cart.volumeInfo.imageLinks.small;
+    const cartImage = cart.volumeInfo.imageLinks.thumbnail;
     return (
       <div className="container">
         <div className="cart__wrapper">
@@ -40,7 +38,7 @@ const FullCart = () => {
             </Link>
           }
           <div className="cart__left">
-            <img className="cart__img" src={cartImage ? cartImage : cat} alt="" />
+            <img className="cart__img" src={cartImage ? cartImage : cat} alt="not found" />
             <div className="cart__info">
               <p className="cart__authors">{cartInfo.authors ? cartInfo.authors.join(' / ') : ''}</p>
               <p className="cart__title">{cartInfo.title}</p>
@@ -49,7 +47,7 @@ const FullCart = () => {
             </div>
           </div>
           <div className="cart__right">
-            <h1 className='text__right'>{text}</h1>
+            <h1 className='text__right'>{text ? text : 'Описание отсутствует :('}</h1>
           </div>
         </div>
       </div>
