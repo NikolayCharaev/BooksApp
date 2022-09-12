@@ -7,11 +7,6 @@ import cat from '../images/catGif.gif';
 import '../scss/styles.scss';
 const Header = () => {
 
-
-
-
-
-
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -23,6 +18,13 @@ const Header = () => {
     }
   }
   
+  useEffect(() => {
+    if (counterPagination !== 8) {
+      searchBook()
+    }
+  }, [counterPagination])
+
+
   async function searchBook() {
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     setLoading(true);
@@ -79,7 +81,7 @@ const Header = () => {
               className="more__button"
               onClick={() => {
                 setCounterPagination(counterPagination =>  counterPagination += 4)
-                searchBook()
+                // searchBook()
                 console.log(counterPagination)
 
               }}>
