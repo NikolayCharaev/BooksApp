@@ -81,8 +81,6 @@ const Header = () => {
               className="more__button"
               onClick={() => {
                 setCounterPagination(counterPagination =>  counterPagination += 4)
-                // searchBook()
-                console.log(counterPagination)
 
               }}>
               еще
