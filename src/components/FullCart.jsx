@@ -43,7 +43,7 @@ const FullCart = () => {
           <div className="cart__left">
             <img className="cart__img" src={cartImage ? cartImage : cat} alt="not found" />
             <div className="cart__info">
-              <p className="cart__authors">{cartInfo.authors ? cartInfo.authors.join(' / ') : ''}</p>
+              <p className="cart__authors">{cartInfo.authors ? cartInfo.authors.slice(0,2).join(', ') : ''}</p>
               <p className="cart__title">{cartInfo.title}</p>
               <p className="cart__subtitle">{cartInfo.subtitle}</p>
               <p className="cart__country">Язык - {cart.accessInfo.country}</p>
@@ -53,7 +53,7 @@ const FullCart = () => {
             <h1 className='text__right'>{text ? text : 'Описание отсутствует :('}</h1>
           </div>
           <div className='wrapper__button'>
-            <a className='more__button' href={cartInfo.previewLink} target='_blank'>подробнее</a>
+            <a className='more__button' href={cartInfo.previewLink}  target='_blank' rel="noreferrer" >подробнее</a>
           </div>
         
 

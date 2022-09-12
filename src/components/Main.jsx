@@ -11,6 +11,7 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [counterPagination, setCounterPagination] = useState(8)
 
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
@@ -19,21 +20,16 @@ const Header = () => {
   }
   async function searchBook() {
     let pagination = 40;
-    let counterPagination = 8;
-    let maxResults = pagination;
-    // let startIndex = 40;
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     setLoading(true);
     await axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${pagination}`)
       .then((elem) => {
+        console.log(elem)
         const data = elem.data.items
-        // setBook(elem.data.items.slice(0, pagination));
         setBook(data.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description).slice(0,counterPagination))
-        // setBook(data)
         setLoading(false);
       })
-      .then((pagination += 8))
       .catch((err) => {
         setLoading(true);
         console.log('Произошла ошибка... ' + err);
@@ -77,7 +73,9 @@ const Header = () => {
             <button
               className="more__button"
               onClick={() => {
+
                 searchBook();
+                // setCounterPagination(() => setCounterPagination => setCounterPagination + 4)
               }}>
               еще
             </button>
