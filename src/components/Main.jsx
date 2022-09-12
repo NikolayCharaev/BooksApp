@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
 import { useLocation, Link, useParams } from 'react-router-dom';
@@ -6,26 +6,29 @@ import cat from '../images/catGif.gif';
 
 import '../scss/styles.scss';
 const Header = () => {
-  const location = useLocation();
-  const { id } = useParams();
+
+
+
+
+
+
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
   const [counterPagination, setCounterPagination] = useState(8)
-
+  
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
       searchBook(e.target.value);
     }
   }
+  
   async function searchBook() {
-    let pagination = 40;
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     setLoading(true);
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${pagination}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${counterPagination}`)
       .then((elem) => {
-        console.log(elem)
         const data = elem.data.items
         setBook(data.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description).slice(0,counterPagination))
         setLoading(false);
@@ -35,6 +38,8 @@ const Header = () => {
         console.log('Произошла ошибка... ' + err);
       });
   }
+
+
 
   return (
     <div className="header">
@@ -56,7 +61,7 @@ const Header = () => {
             className="search__button"
             onClick={(e) => {
               if (value.length > 0) {
-                searchBook(value);
+                searchBook();
                 setValue('');
               }
             }}>
@@ -73,9 +78,10 @@ const Header = () => {
             <button
               className="more__button"
               onClick={() => {
+                setCounterPagination(counterPagination =>  counterPagination += 4)
+                searchBook()
+                console.log(counterPagination)
 
-                searchBook();
-                // setCounterPagination(() => setCounterPagination => setCounterPagination + 4)
               }}>
               еще
             </button>
