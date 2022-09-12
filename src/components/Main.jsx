@@ -22,19 +22,19 @@ const Header = () => {
     let pagination = 8;
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     console.log(location);
+    setLoading(true);
     axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${maxResults}`)
-      // .then((elem) => setBook(elem.data.items.slice(0, pagination)))
-      .then(elem => {
-        setLoading(true)
-        setBook(elem.data.items.slice(0, pagination))
-        setLoading(false)
-
+      .then((elem) => {
+        console.log(loading)
+        setBook(elem.data.items.slice(0, pagination));
+        setLoading(false);
+        console.log(loading)
       })
       .then((pagination += 8))
       .catch((err) => {
-        setLoading(true)
-        console.log('Произошла ошибка... ' + err)
+        setLoading(true);
+        console.log('Произошла ошибка... ' + err);
       });
   }
   return (
@@ -60,9 +60,9 @@ const Header = () => {
         </div>
 
         <div className={book.length > 0 ? 'cart' : ''}>
-        {loading === true ?  <img className='center ' src={cat}  alt="" /> : null}
+          {loading === true ? <img className="center " src={cat} alt="" /> : null}
           <div className="cart__inner">
-          <CartItem book={book} /> 
+            <CartItem book={book} />
           </div>
           {book.length > 0 ? (
             <button
