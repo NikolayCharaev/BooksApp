@@ -5,7 +5,6 @@
   border-radius: 20px;
   display: flex;
   justify-content: center;
-//   justify-content: space-between;
   position: relative;
   .close {
     position: absolute;
@@ -18,12 +17,28 @@
     border: none;
     cursor: pointer;
   }
+  .wrapper__button {
+
+    position: absolute;
+    bottom: 0;
+
+    a{
+      text-decoration: none;
+    }
+  }
+
   .cart__left {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(131, 136, 139);
+    border-radius: 5px;
+    padding: 0 10px;
+    // max-height: 455px;
+    height: 455px;
     .cart__img {
+      border-radius: 10px;
       max-width: 300px;
       width: 300px;
       height: 300px;
@@ -37,6 +52,7 @@
       margin-top: 10px;
       border-radius: 5px;
       background-color: rgba(244, 244, 244, 0.9);
+      overflow: scroll;
     }
     .cart__authors {
       font-size: 22px;
@@ -61,16 +77,17 @@
   .cart__right {
     overflow: scroll;
     max-width: 500px;
-    max-height: 480px;
+    height: 455px;
+    max-height: 455px;
     background-color: rgba(244, 244, 244, 0.9);
     padding: 15px;
     border-radius: 7px;
     margin-left: 20px;
 
-    .text__right{
-        font-weight: 400;
-        font-size: 25px;
-        line-height: 30px;
+    .text__right {
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 30px;
     }
   }
 }

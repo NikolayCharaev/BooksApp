@@ -5,7 +5,6 @@ import cat from '../images/котик2.jpeg';
 import catGif from '../images/catGif.gif'
 
 const FullCart = () => {
-  const params = useParams();
   const { id } = useParams();
   const [cart, setFullCart] = useState([]);
   const [text, setText] = useState('');
@@ -22,6 +21,7 @@ const FullCart = () => {
             data.data.volumeInfo.description
           );
           setLoading(false)
+          console.log(id)
         });
       } catch (err) {
         setLoading(true)
@@ -54,7 +54,13 @@ const FullCart = () => {
           <div className="cart__right">
             <h1 className='text__right'>{text ? text : 'Описание отсутствует :('}</h1>
           </div>
+          <div className='wrapper__button'>
+            <a className='more__button' href={cartInfo.previewLink} target='_blank'>подробнее</a>
+          </div>
+        
+
         </div>
+          
       </div>
       
     );
