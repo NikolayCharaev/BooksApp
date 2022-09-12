@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 
 const CartItem = ({ book }) => {
+  // console.log(book, 'book')
   return (
     <>
-      {book.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description ).map((item,i) => {
+      {
+      book.map((item,i)=> {
         const info = item.volumeInfo;
         const infoImage = item.volumeInfo.imageLinks;
         return (
-          <Link to={`/cart/${item.id}`}>
-            <div className="cart__item">
+          <Link to={`/cart/${item.id}`} key={i}>
+            <div className="cart__item" >
               <img
                 className="cart__img"
                 src={

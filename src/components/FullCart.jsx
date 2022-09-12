@@ -14,14 +14,12 @@ const FullCart = () => {
     async function fetchCart() {
       try {
         await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then((data) => {
-          console.log('data-then', data);
           setLoading(true)
           setFullCart(data.data);
           setText(
             data.data.volumeInfo.description
           );
           setLoading(false)
-          console.log(id)
         });
       } catch (err) {
         setLoading(true)

@@ -11,8 +11,6 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log(location);
-  console.log(id);
 
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
@@ -20,21 +18,24 @@ const Header = () => {
     }
   }
   async function searchBook() {
-    let pagination = 8;
+    let pagination = 40;
+    let counterPagination = 8;
     let maxResults = pagination;
-    console.log(location);
+    // let startIndex = 40;
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     setLoading(true);
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${maxResults}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${pagination}`)
       .then((elem) => {
-        setBook(elem.data.items.slice(0, pagination));
+        const data = elem.data.items
+        // setBook(elem.data.items.slice(0, pagination));
+        setBook(data.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description).slice(0,counterPagination))
+        // setBook(data)
         setLoading(false);
       })
       .then((pagination += 8))
       .catch((err) => {
         setLoading(true);
-        
         console.log('Произошла ошибка... ' + err);
       });
   }
@@ -55,10 +56,10 @@ const Header = () => {
             onKeyPress={buttonPress}
           />
           <button
-            type='submit'
+            type="submit"
             className="search__button"
             onClick={(e) => {
-              if (value.length > 0 ) {
+              if (value.length > 0) {
                 searchBook(value);
                 setValue('');
               }
