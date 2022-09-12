@@ -1,0 +1,56 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  line-height: 25px;
+}
+
+.container {
+  max-width: 1530px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  background-image: url(../images//header-bg.jpeg);
+  height: 100vh;
+  overflow: scroll;
+  padding-bottom: 60px;
+}
+
+.search__button {
+  padding: 5px;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: rgb(48, 79, 173);
+  }
+}
+
+.search__input {
+  width: 700px;
+  padding: 4px;
+  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+}
+
+.white {
+  color: #fff;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+  // width: 600px;
+  // height: 400px;
+}
+
+
+a{
+  color: inherit;
+}

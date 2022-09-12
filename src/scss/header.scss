@@ -1,0 +1,18 @@
+
+
+.header{
+    padding-top: 40px;
+    
+    .header__logo{
+        text-decoration: none;
+        text-transform: lowercase;
+        color: lavenderblush;
+
+    }
+
+    .header__top{
+        display: flex;
+        justify-content: center;
+    }
+
+}
