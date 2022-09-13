@@ -29,7 +29,7 @@ const Header = () => {
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     setLoading(true);
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${counterPagination}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
       .then((elem) => {
         const data = elem.data.items
         setBook(data.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description).slice(0,counterPagination))
@@ -74,6 +74,7 @@ const Header = () => {
         <div className={book.length > 0 ? 'cart' : ''}>
           {loading === true ? <img className="center " src={cat} alt="" /> : null}
           <div className="cart__inner">
+            {console.log(book)}
             <CartItem book={book} />
           </div>
           {book.length > 0 ? (

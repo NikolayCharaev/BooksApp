@@ -1,6 +1,7 @@
 import Header from './components/Main';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FullCart from './components/FullCart';
+import CartItem from './components/CartItem';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Header/>}/> 
             <Route path='/cart/:id' element={<FullCart/>}/> 
+            <Route path='/asd' element={<CartItem/>}/>
           </Routes>
       </BrowserRouter>
     </div>
