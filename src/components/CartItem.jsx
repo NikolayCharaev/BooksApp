@@ -8,7 +8,7 @@ const CartItem = ({ book }) => {
         const info = item.volumeInfo;
         const infoImage = item.volumeInfo.imageLinks;
         return (
-          <Link to={`/cart/${item.id}`} key={i}>
+          <Link className='full__cart-link' to={`/cart/${item.id}`} key={i}>
             <div className="cart__item" >
               <img
                 className="cart__img"
@@ -21,7 +21,7 @@ const CartItem = ({ book }) => {
               />
               <div className="cart__content">
                 <h3 className="cart__title">
-                  {info.authors ? info.authors : 'не найдено автора :('}
+                  {info.authors ? info.authors.slice(0,2).join(', ') : 'не найдено автора :('}
                 </h3>
                 <p className="cart__description">
                   {info.description

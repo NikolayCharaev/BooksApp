@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
-import { useLocation, Link, useParams } from 'react-router-dom';
+// import { useLocation, Link, useParams } from 'react-router-dom';
 import cat from '../images/catGif.gif';
 
 import '../scss/styles.scss';
@@ -41,10 +41,9 @@ const Header = () => {
       });
   }
 
-
-
   return (
     <div className="header">
+      {console.log(book)}
       <div className="container">
         <div className={book.length > 0 ? 'header__top' : 'header__center'}>
           <input
@@ -71,11 +70,9 @@ const Header = () => {
           </button>
         </div>
 
-
         <div className={book.length > 0 ? 'cart' : ''}>
           {loading === true ? <img className="center " src={cat} alt="" /> : null}
           <div className="cart__inner">
-            {console.log(book)}
             <CartItem book={book} />
           </div>
           {book.length > 0 ? (
@@ -83,7 +80,6 @@ const Header = () => {
               className="more__button"
               onClick={() => {
                 setCounterPagination(counterPagination =>  counterPagination += 4)
-
               }}>
               еще
             </button>

@@ -6,6 +6,10 @@
   display: flex;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 748px) {
+    flex-direction: column;
+  }
   .close {
     position: absolute;
     top: 0;
@@ -18,11 +22,10 @@
     cursor: pointer;
   }
   .wrapper__button {
-
     position: absolute;
     bottom: 0;
 
-    a{
+    a {
       text-decoration: none;
     }
   }
@@ -37,32 +40,69 @@
     padding: 0 10px;
     // max-height: 455px;
     height: 455px;
+
+    @media (max-width: 748px) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+      height: 370px;
+
+    }
+
+    @media (max-width: 420px) {
+      padding: 0;
+      background-color: inherit;
+      // width: 400px;
+      display: block;
+      // height: 400px;
+    }
     .cart__img {
       border-radius: 10px;
       max-width: 300px;
-      width: 300px;
-      height: 300px;
+      width: 230px;
+      height: 230px;
+
+      @media (max-width: 480px) {
+        width: 180px;
+        height: 180px;
+      }
       // object-fit: cover;
     }
 
     .cart__info {
-      max-width: 300px;
+      max-width: 230px;
       width: 300px;
       padding: 10px;
       margin-top: 10px;
       border-radius: 5px;
       background-color: rgba(244, 244, 244, 0.9);
       overflow: scroll;
+
+      @media (max-width: 480px) {
+        width: 180px;
+      }
     }
     .cart__authors {
       font-size: 22px;
       font-weight: bold;
+
+      @media (max-width: 480px) {
+        font-size: 18px;
+        line-height: 20px;
+      }
     }
 
     .cart__title {
       font-weight: bold;
       font-size: 20px;
-      color: cadetblue;
+      color: red;
+
+      @media (max-width: 480px) {
+        margin: 4px 0;
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
 
     .cart__subtitle {
@@ -84,10 +124,30 @@
     border-radius: 7px;
     margin-left: 20px;
 
+    @media (max-width: 748px) {
+      height: 300px;
+      max-width: 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    @media (max-width: 420px) {
+      display: none;
+    }
+
     .text__right {
       font-weight: 400;
       font-size: 25px;
       line-height: 30px;
+
+      @media (max-width: 1033px) {
+        font-size: 20px;
+        line-height: 25px;
+      }
+      @media (max-width: 880px) {
+        font-size: 15px;
+        line-height: 20px;
+      }
     }
   }
 }

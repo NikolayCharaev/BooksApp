@@ -22,10 +22,35 @@
     input{
         padding: 20px;
         font-size: 20px;
+
+        @media(max-width:1236px) {
+          padding: 10px ;
+          width: 500px;
+        }
+
+        @media(max-width:560px) {
+          width: 300px;
+        }
+
+        @media(max-width: 400px) {
+          width: 200px;
+          &::placeholder{
+            font-size: 15px;
+          }
+        }
     }
     button{
         padding: 20px;
         font-size: 21px;
+
+        @media(max-width:1236px) {
+          padding: 10px;
+        }
+
+        @media(max-width: 400px) {
+          padding: 14px;
+          font-size: 15px;
+        }
     }
   }
 }

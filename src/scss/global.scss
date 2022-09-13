@@ -56,6 +56,14 @@ p {
   border-radius: 5px;
   border-radius: 5px 0 0 5px;
   border: none;
+
+  @media(max-width:920px) {
+    width: 500px;
+  }
+
+  @media(max-width:643px) {
+    width: 400px;
+  }
 }
 
 .white {
