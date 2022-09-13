@@ -70,8 +70,12 @@ p {
   color: #fff;
 }
 .center {
-  display: block;
-  margin: 0 auto;
+display: block;
+margin: 0 auto;
+position: absolute;
+top: 20%;
+left: 40%;
+
 }
 
 a{

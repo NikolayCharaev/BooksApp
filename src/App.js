@@ -8,6 +8,7 @@ function App() {
     <div className="wrapper">
       <BrowserRouter>
           <Routes>
+            <Route path='/BooksApp' element={<Header/>}/> 
             <Route path='/' element={<Header/>}/> 
             <Route path='/cart/:id' element={<FullCart/>}/> 
             <Route path='/asd' element={<CartItem/>}/>
