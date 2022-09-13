@@ -11,6 +11,7 @@ const FullCart = () => {
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
+  console.log(navigate)
   
   useEffect(() => {
     async function fetchCart() {
