@@ -70,6 +70,7 @@ const Header = () => {
             найти
           </button>
         </div>
+              <p>asd</p>
 
         <div className={book.length > 0 ? 'cart' : ''}>
           {loading === true ? <img className="center " src={cat} alt="" /> : null}
