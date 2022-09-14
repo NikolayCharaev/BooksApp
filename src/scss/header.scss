@@ -19,6 +19,10 @@
     width: 100%;
     margin-top: 400px;
 
+    @media(max-width:375px) {
+      margin-top: 300px;
+    }
+
     input{
         padding: 20px;
         font-size: 20px;
@@ -38,6 +42,8 @@
             font-size: 15px;
           }
         }
+
+       
     }
     button{
         padding: 20px;
