@@ -19,6 +19,11 @@
     width: 100%;
     margin-top: 400px;
 
+
+  @media(max-width:667px) {
+    margin-top: 100px;
+  }
+
     @media(max-width:375px) {
       margin-top: 200px;
     }
