@@ -43,7 +43,6 @@ const Header = () => {
 
   return (
     <div className="header">
-      {console.log(book)}
       <div className="container">
         <div className={book.length > 0 ? 'header__top' : 'header__center'}>
           <input
@@ -52,6 +51,8 @@ const Header = () => {
             required
             placeholder="поиск книги..."
             value={value}
+            maxLength='20'
+            
             onChange={(e) => {
               setValue(e.target.value);
             }}

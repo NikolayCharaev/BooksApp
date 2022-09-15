@@ -10,6 +10,10 @@
   @media (max-width: 748px) {
     flex-direction: column;
   }
+
+  @media (max-width: 375px) {
+    padding: 80px;
+  }
   .close {
     position: absolute;
     top: 0;
@@ -38,24 +42,33 @@
     background-color: rgb(131, 136, 139);
     border-radius: 5px;
     padding: 0 10px;
-    // max-height: 455px;
     height: 455px;
+
+
+
+    @media (max-width: 915px) {
+      height: 353px;
+      padding: 0 24px;
+    }
 
     @media (max-width: 748px) {
       margin-bottom: 10px;
     }
 
+    
     @media (max-width: 480px) {
-      height: 370px;
+      height: 280px;
 
+      // padding: 0;
+      background-color: inherit;
+      display: block;
     }
 
-    @media (max-width: 420px) {
-      padding: 0;
-      background-color: inherit;
-      // width: 400px;
-      display: block;
-      // height: 400px;
+
+    @media (max-width: 375px) {
+        width: 100%;
+        height: 100%;
+        margin-right: 40px;
     }
     .cart__img {
       border-radius: 10px;
@@ -63,11 +76,17 @@
       width: 230px;
       height: 230px;
 
-      @media (max-width: 480px) {
-        width: 180px;
-        height: 180px;
+      @media (max-width: 915px) {
+          width: 150px;
+          height: 150px;
       }
-      // object-fit: cover;
+  
+
+      @media (max-width: 480px) {
+        // width: 180px;
+        // height: 180px;
+        width: 100%;
+      }
     }
 
     .cart__info {
@@ -78,14 +97,27 @@
       border-radius: 5px;
       background-color: rgba(244, 244, 244, 0.9);
       overflow: scroll;
+      p{
+        line-height: 15px;
+      }
+
+      @media (max-width: 915px) {
+        width: 150px;
+        padding-bottom: 15px;
+    }
 
       @media (max-width: 480px) {
-        width: 180px;
+        // width: 180px;
+        width: 100%;
       }
     }
     .cart__authors {
       font-size: 22px;
       font-weight: bold;
+
+      @media (max-width: 915px) {
+        font-size: 12px;
+    }
 
       @media (max-width: 480px) {
         font-size: 18px;
@@ -97,6 +129,10 @@
       font-weight: bold;
       font-size: 20px;
       color: red;
+
+      @media (max-width: 915px) {
+        font-size: 10px;
+    }
 
       @media (max-width: 480px) {
         margin: 4px 0;
@@ -111,6 +147,10 @@
 
     .cart__country {
       color: blue;
+
+      @media (max-width: 915px) {
+        font-size: 10px;
+    }
     }
   }
 
@@ -123,6 +163,10 @@
     padding: 15px;
     border-radius: 7px;
     margin-left: 20px;
+
+    @media (max-width: 915px) {
+      height: 353px;
+    }
 
     @media (max-width: 748px) {
       height: 300px;
@@ -143,6 +187,11 @@
       @media (max-width: 1033px) {
         font-size: 20px;
         line-height: 25px;
+      }
+
+      @media (max-width: 915px) {
+        font-size: 15px;
+        line-height: 20px;
       }
       @media (max-width: 880px) {
         font-size: 15px;
