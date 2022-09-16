@@ -20,7 +20,9 @@ p {
   padding-bottom: 60px;
 
 
+
   @media (max-width: 375px) {
+    padding-top: 50px;
     overflow: none;
   }
 
@@ -94,8 +96,8 @@ left: 41%;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 0;
-  left: 30%;
+  top: 220px;
+  left: 19%;
   .error__image{
     width: 250px;
     display: block;

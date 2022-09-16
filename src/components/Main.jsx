@@ -10,13 +10,14 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [errorText, setErrorText] = useState('')
+  const [error, setError] = useState(true);
+  const [errorText, setErrorText] = useState('asjkdaskjasdljsd')
   const [counterPagination, setCounterPagination] = useState(8);
 
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
       searchBook(e.target.value);
+      // setValue('')
     }
   }
 
@@ -79,7 +80,7 @@ const Header = () => {
             onClick={(e) => {
               if (value.length > 0) {
                 searchBook();
-                setValue('');
+                // setValue('');
               }
             }}>
             найти
