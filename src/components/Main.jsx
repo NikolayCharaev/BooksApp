@@ -10,8 +10,8 @@ const Header = () => {
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
-  const [errorText, setErrorText] = useState('asjkdaskjasdljsd')
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState('')
   const [counterPagination, setCounterPagination] = useState(8);
 
   function buttonPress(e) {
