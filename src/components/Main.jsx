@@ -3,27 +3,28 @@ import CartItem from './CartItem';
 import axios from 'axios';
 // import { useLocation, Link, useParams } from 'react-router-dom';
 import cat from '../images/catGif.gif';
+import catError from '../images/catError.gif';
 
 import '../scss/styles.scss';
 const Header = () => {
-
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [counterPagination, setCounterPagination] = useState(8)
-  
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState('')
+  const [counterPagination, setCounterPagination] = useState(8);
+
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
       searchBook(e.target.value);
     }
   }
-  
+
   useEffect(() => {
     if (counterPagination !== 8) {
-      searchBook()
+      searchBook();
     }
-  }, [counterPagination])
-
+  }, [counterPagination]);
 
   async function searchBook() {
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
@@ -31,13 +32,28 @@ const Header = () => {
     await axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
       .then((elem) => {
-        const data = elem.data.items
-        setBook(data.filter(elem => elem.volumeInfo.imageLinks && elem.volumeInfo.authors && elem.volumeInfo.description).slice(0,counterPagination))
+        const data = elem.data.items;
+        setBook(
+          data
+            .filter(
+              (elem) =>
+                elem.volumeInfo.imageLinks &&
+                elem.volumeInfo.authors &&
+                elem.volumeInfo.description,
+            )
+            .slice(0, counterPagination),
+        );
         setLoading(false);
       })
       .catch((err) => {
-        setLoading(true);
-        console.log('Произошла ошибка... ' + err);
+        setLoading(false);
+        setErrorText('Произошла ошибка... ' + err)
+        setError(true)
+        setValue('')
+        setTimeout(() => {
+          setError(false)
+
+        },5000)
       });
   }
 
@@ -51,8 +67,7 @@ const Header = () => {
             required
             placeholder="поиск книги..."
             value={value}
-            maxLength='20'
-            
+            maxLength="20"
             onChange={(e) => {
               setValue(e.target.value);
             }}
@@ -72,7 +87,14 @@ const Header = () => {
         </div>
 
         <div className={book.length > 0 ? 'cart' : ''}>
-          {loading === true ? <img className="center " src={cat} alt="" /> : null}
+          {loading === true ? <img className="center " src={cat} alt="" /> : null 
+          || 
+          error === true ? 
+          <div className='error__wrapper'>
+          <img className="error__image" src={catError} alt="" />  
+          <p className='text__error'>{errorText}</p>
+          </div>
+          : null }
           <div className="cart__inner">
             <CartItem book={book} />
           </div>
@@ -80,7 +102,7 @@ const Header = () => {
             <button
               className="more__button"
               onClick={() => {
-                setCounterPagination(counterPagination =>  counterPagination += 4)
+                setCounterPagination((counterPagination) => (counterPagination += 4));
               }}>
               еще
             </button>
