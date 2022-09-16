@@ -1,9 +1,6 @@
 .header {
   padding-top: 40px;
 
-  @media(max-width:375px) {
-    padding-top: 20px;
-  }
 
   .header__logo {
     text-decoration: none;
