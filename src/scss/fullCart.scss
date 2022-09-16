@@ -8,14 +8,15 @@
   position: relative;
 
   @media (max-width: 748px) {
+    padding: 70px 20px;
     flex-direction: column;
   }
+
+
 
   @media (max-width: 375px) {
     margin-top: 120px;
     position: relative;
-    // padding: 80px;
-    // width: 330px;
     width: 100%;
     height: 500px;
   }
@@ -44,26 +45,26 @@
   .cart__left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(131, 136, 139);
     border-radius: 5px;
-    padding: 0 10px;
     height: 455px;
 
     @media (max-width: 915px) {
       height: 353px;
-      padding: 0 24px;
     }
 
     @media (max-width: 748px) {
       margin-bottom: 10px;
+      height: 212px;
+      justify-content: center;
+      flex-direction: row;
     }
 
     @media (max-width: 480px) {
-      height: 280px;
+      height: 210px;
+      padding: 0 10px;
       background-color: inherit;
-      display: block;
     }
 
     @media (max-width: 375px) {
@@ -74,11 +75,10 @@
       width: 100%;
       min-width: 300px;
       height: 100%;
-      padding: 20px ;
+      padding: 20px;
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
-
     }
     .cart__img {
       border-radius: 10px;
@@ -91,30 +91,48 @@
         height: 150px;
       }
 
+      @media (max-width: 748px) {
+        width: 200px;
+        margin-right: 10px;
+        height: 100%;
+      }
+
       @media (max-width: 480px) {
         width: 100%;
+        height: 180px;
+      }
+
+      @media (max-width: 375px) {
+        height: 150px;
       }
     }
+
+  
 
     .cart__info {
       max-width: 230px;
       width: 300px;
       padding: 10px;
       margin-top: 10px;
+      height: 100%;
       border-radius: 10px;
       background-color: rgba(244, 244, 244, 0.9);
       overflow: scroll;
-      p {
-        line-height: 15px;
-      }
-
+      position: relative;
       @media (max-width: 915px) {
         width: 150px;
         padding-bottom: 15px;
       }
 
+
+      @media (max-width: 748px) {
+        margin-top: 0;
+        width: 100%;
+      }
       @media (max-width: 480px) {
         width: 100%;
+        // height: 200px;
+        height: 180px;
       }
 
       @media (max-width: 375px) {
@@ -125,8 +143,11 @@
       }
     }
     .cart__authors {
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 5px;
 
       @media (max-width: 915px) {
         font-size: 12px;
@@ -136,7 +157,7 @@
         font-size: 18px;
         line-height: 20px;
       }
-      @media (max-width: 375px) {
+      @media (max-width: 420px) {
         font-size: 10px;
         line-height: 14px;
       }
@@ -144,8 +165,11 @@
 
     .cart__title {
       font-weight: bold;
-      font-size: 20px;
-      color: grey;
+      font-size: 16px;
+      line-height: 20px;
+      color: black;
+
+      text-align: center;
 
       @media (max-width: 915px) {
         font-size: 10px;
@@ -157,7 +181,7 @@
         line-height: 18px;
       }
 
-      @media (max-width: 375px) {
+      @media (max-width: 420px) {
         font-size: 10px;
         line-height: 10px;
       }
@@ -167,8 +191,26 @@
       font-size: 18px;
     }
 
+    .wrapper__bottom-content{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      bottom: 0;
+    }
+    .bottom__wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+  
+    .cart__publishing {
+      font-size: 8px;
+    }
     .cart__country {
       color: blue;
+      bottom: 8px;
 
       @media (max-width: 915px) {
         font-size: 10px;
@@ -177,7 +219,6 @@
       @media (max-width: 375px) {
         position: absolute;
         bottom: 8px;
-
       }
     }
   }
@@ -203,10 +244,6 @@
       margin-left: 0;
     }
 
-    @media (max-width: 420px) {
-      display: none;
-    }
-
     @media (max-width: 375px) {
       display: block;
       position: absolute;
@@ -216,14 +253,19 @@
       height: 210px;
     }
 
+    @media (max-width: 320px) {
+      width: 260px;
+    }
+
     .text__right {
       font-weight: 400;
-      font-size: 25px;
-      line-height: 30px;
+      font-size: 19px;
+      line-height: 23px;
+
+      @media (max-width: 1287px) {
+      }
 
       @media (max-width: 1033px) {
-        font-size: 20px;
-        line-height: 25px;
       }
 
       @media (max-width: 915px) {

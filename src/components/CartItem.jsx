@@ -23,6 +23,7 @@ const CartItem = ({ book }) => {
                 <h3 className="cart__title">
                   {info.authors ? info.authors.slice(0,2).join(', ') : 'не найдено автора :('}
                 </h3>
+        
                 <p className="cart__description">
                   {info.description
                     ? info.description.slice(0, 100) + '...'

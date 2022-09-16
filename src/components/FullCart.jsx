@@ -1,34 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link} from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import cat from '../images/котик2.jpeg';
-import catGif from '../images/catGif.gif'
+import catGif from '../images/catGif.gif';
 
 const FullCart = () => {
   const { id } = useParams();
   const [cart, setFullCart] = useState([]);
   const [text, setText] = useState('');
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     async function fetchCart() {
       try {
         await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then((data) => {
-          setLoading(true)
+          setLoading(true);
           setFullCart(data.data);
-          setText(
-            data.data.volumeInfo.description
-          );
-          setLoading(false)
+          setText(data.data.volumeInfo.description);
+          setLoading(false);
         });
       } catch (err) {
-        setLoading(true)
+        setLoading(true);
         console.log('Произошла ошибка, повторите попытку позже :(', err);
       }
     }
     fetchCart();
-  },[]);
-
+  }, []);
 
   if (cart.length !== 0 && loading === false) {
     const cartInfo = cart.volumeInfo;
@@ -38,39 +35,51 @@ const FullCart = () => {
         <div className="cart__wrapper">
           {
             <Link to="/">
-              <button className="close"
-               >закрыть</button>
-              </Link>
+              <button className="close">закрыть</button>
+            </Link>
           }
           <div className="cart__left">
             <img className="cart__img" src={cartImage ? cartImage : cat} alt="not found" />
             <div className="cart__info">
-              <p className="cart__authors">{cartInfo.authors ? cartInfo.authors.slice(0,2).join(', ') : ''}</p>
+              <p className="cart__authors">
+                {cartInfo.authors ? cartInfo.authors.slice(0, 2).join(', ') : ''}
+              </p>
               <p className="cart__title">{cartInfo.title}</p>
               <p className="cart__subtitle">{cartInfo.subtitle}</p>
-              <p className="cart__country">Язык - {cart.accessInfo.country}</p>
+              <div className="wrapper__bottom-content">
+              <div className="bottom__wrapper">
+                <p className="cart__published-date">{cartInfo.publishedDate ? cartInfo.publishedDate.replace(/-/g,'.').slice(0,4) : null}г.</p>
+                <p className="cart__country">Язык - {cart.accessInfo.country}</p>
+              </div>
+              <div className='cart__publishing'>
+                <p>{cartInfo.publisher ? cartInfo.publisher.replace(/"/g, ' ') : null}</p>
+                </div>
             </div>
+            </div>
+
           </div>
           <div className="cart__right">
-            <h1 className='text__right'>{text ? text : 'Описание отсутствует :('}</h1>
+            <h1 className="text__right">{text ? text : 'Описание отсутствует :('}</h1>
           </div>
-          <div className='wrapper__button'>
-            <a className='more__button' href={cartInfo.previewLink}  target='_blank' rel="noreferrer" >подробнее</a>
+          <div className="wrapper__button">
+            <a
+              className="more__button"
+              href={cartInfo.previewLink}
+              target="_blank"
+              rel="noreferrer">
+              подробнее
+            </a>
           </div>
-        
-
         </div>
-          
       </div>
-      
     );
   } else {
     return (
       <div className="container">
-      <div className="cart__wrapper">
+        <div className="cart__wrapper">
           <img src={catGif} alt="cat" />
         </div>
-        </div>
+      </div>
     );
   }
 };
