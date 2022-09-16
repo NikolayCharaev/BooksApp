@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
-// import { useLocation, Link, useParams } from 'react-router-dom';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
 
+import { setLoading,setError,setErrorText } from '../redux/mainSlices/mainSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
 import '../scss/styles.scss';
 const Header = () => {
+
+  const loading = useSelector(state => state.mainSlices.loading)
+  const error = useSelector(state => state.mainSlices.error)
+  const errorText = useSelector(state => state.mainSlices.errorText)
+  
+  const dispatch = useDispatch()
+
+
+
   const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [errorText, setErrorText] = useState('')
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
+  // const [errorText, setErrorText] = useState('')
   const [counterPagination, setCounterPagination] = useState(8);
 
   function buttonPress(e) {
@@ -29,7 +40,8 @@ const Header = () => {
 
   async function searchBook() {
     const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
-    setLoading(true);
+    // setLoading(true);
+    dispatch(setLoading())
     await axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
       .then((elem) => {
@@ -44,15 +56,16 @@ const Header = () => {
             )
             .slice(0, counterPagination),
         );
-        setLoading(false);
+        // setLoading(false);
+        dispatch(setLoading())
       })
       .catch((err) => {
-        setLoading(false);
-        setErrorText('Произошла ошибка... ' + err)
-        setError(true)
+        dispatch(setLoading()) // cat
+        dispatch(setErrorText('Произошла ошибка... ' + err))
+        dispatch(setError()) // cat
         setValue('')
         setTimeout(() => {
-          setError(false)
+          dispatch(setError())
 
         },5000)
       });
