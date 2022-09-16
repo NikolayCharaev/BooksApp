@@ -39,7 +39,7 @@ const FullCart = () => {
           {
             <Link to="/">
               <button className="close"
-               >назад</button>
+               >закрыть</button>
               </Link>
           }
           <div className="cart__left">
