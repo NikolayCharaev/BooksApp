@@ -45,7 +45,7 @@ const FullCart = () => {
                 {cartInfo.authors ? cartInfo.authors.slice(0, 2).join(', ') : ''}
               </p>
               <p className="cart__title">{cartInfo.title}</p>
-              <p className="cart__subtitle">{cartInfo.subtitle}</p>
+              {/* <p className="cart__subtitle">{cartInfo.subtitle}</p> */}
               <div className="wrapper__bottom-content">
               <div className="bottom__wrapper">
                 <p className="cart__published-date">{cartInfo.publishedDate ? cartInfo.publishedDate.replace(/-/g,'.').slice(0,4) : null}г.</p>

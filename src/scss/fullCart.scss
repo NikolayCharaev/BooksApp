@@ -208,6 +208,10 @@
     .cart__publishing {
       font-size: 8px;
     }
+
+    .cart__published-date{
+      font-size: 8px;
+    }
     .cart__country {
       color: blue;
       bottom: 8px;
@@ -219,6 +223,7 @@
       @media (max-width: 375px) {
         position: absolute;
         bottom: 8px;
+        margin: 5px 0;
       }
     }
   }
