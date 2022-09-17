@@ -26,15 +26,18 @@
         }
 
         @media(max-width:519px) {
-            grid-template-columns: repeat(auto-fill, 190px); 
+            grid-template-columns: repeat(auto-fill, 170px); 
         }
 
-        @media(max-width:419px) {
-            grid-template-columns: repeat(auto-fill, 320px);  
-        }
+        // @media(max-width:419px) {
+        //     grid-template-columns: repeat(auto-fill, 320px);  
+        // }
 
         @media(max-width:419px) {
             grid-template-columns: repeat(auto-fill, 167px);  
+        }
+        @media(max-width:373px) {
+            grid-template-columns: repeat(auto-fill, 166px);  
         }
     }
 
@@ -49,12 +52,12 @@
         }
 
         @media(max-width:519px) {
-            width: 183px;
+            width: 165px;
         }
 
-        @media(max-width:419px) {
-            width: 329px;
-        }
+        // @media(max-width:419px) {
+        //     width: 329px;
+        // }
 
         @media(max-width:375px) {
             text-decoration: none;
@@ -84,10 +87,6 @@
         }
 
 
-        @media(max-width:419px) {
-            padding: 40px;
-        }
-
         @media(max-width:375px) {
             display: flex;
             flex-direction: column;
@@ -95,6 +94,13 @@
             align-items: center;
             padding: 10px;
          
+        }
+
+        @media(max-width:373px) {
+            // min-width: 330px;
+            width: 200px;
+            // width: 100%;
+
         }
         &:hover{
             transform: scale(0.99);
@@ -111,13 +117,14 @@
 
 
             @media(max-width:519px) {
-                min-width: 150px;
+                min-width: 130px;
+                height: 130px;
             }
 
-            @media(max-width:419px) {
-                height: 346px;
-                max-height: none !important;
-            }
+            // @media(max-width:419px) {
+            //     height: 346px;
+            //     max-height: none !important;
+            // }
 
             @media(max-width:375px) {
                 height: 100px;
@@ -134,9 +141,9 @@
                 font-size: 15px;
             }
 
-            @media(max-width:419px) {
-                font-size: 20px;
-            }
+            // @media(max-width:419px) {
+            //     font-size: 20px;
+            // }
 
             @media(max-width:375px) {
                 font-size: 12px;
@@ -152,10 +159,10 @@
                 line-height: 15px;
             }
 
-            @media(max-width:419px) {
-                font-size: 20px;
-                line-height: 23px;
-            }
+            // @media(max-width:419px) {
+            //     font-size: 20px;
+            //     line-height: 23px;
+            // }
 
             @media(max-width:375px) {
                 font-size: 11px;
