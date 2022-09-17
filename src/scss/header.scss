@@ -1,3 +1,5 @@
+
+
 .header {
   padding-top: 40px;
 
@@ -11,7 +13,10 @@
   .header__top {
     display: flex;
     justify-content: center;
+
+  
   }
+
 
   .header__center {
     display: flex;
@@ -19,8 +24,30 @@
     align-items: center;
     width: 100%;
     margin-top: 400px;
+    position: relative;
+    z-index: 1;
 
+    .input__wrapper{
+      position: relative;
 
+      .icon-clear{
+        position: absolute;
+        background: transparent;
+        background-image: url(../images/closeIcon.png);
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: none;
+        top: 16px;
+        width: 15px;
+        height: 15px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+  
+    }
+     
   @media(max-width:667px) {
     margin-top: 100px;
   }

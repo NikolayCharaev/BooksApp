@@ -3,7 +3,7 @@ import CartItem from './CartItem';
 import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
-
+import clearIcon from '../images/closeIcon.png'
 import {
   setLoading,
   setError,
@@ -74,7 +74,13 @@ const Header = () => {
     <div className="header">
       <div className="container">
         <div className={book.length > 0 ? 'header__top' : 'header__center'}>
-          <input
+            <div className='input__wrapper'>
+            <button type='button' className={value.length > 0 ? 'icon-clear block' : 'icon-clear none'} onClick={() => {
+            dispatch(setValue(''))
+
+          }}>
+          </button>
+            <input
             className="search__input"
             type="text"
             required
@@ -86,6 +92,7 @@ const Header = () => {
             }}
             onKeyPress={buttonPress}
           />
+            </div>
           <button
             type="submit"
             className="search__button"

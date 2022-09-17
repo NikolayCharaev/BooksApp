@@ -27,8 +27,10 @@ export const requestSlices = createSlice({
         state.errorText = action.payload;
       }
     },
-    setCounterPagination: (state) => {
-      state.counterPagination += 4;
+    setCounterPagination: (state,action) => {
+        state.counterPagination += 4;
+        state.counterPagination = action.payload
+        // state.book.slice(0, state.counterPagination)
     },
     setBook: (state, action) => {
       state.book = action.payload;
