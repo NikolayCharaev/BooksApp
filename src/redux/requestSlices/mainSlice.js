@@ -15,7 +15,6 @@ export const mainSlices = createSlice({
   reducers: {
     setValue: (state, action) => {
             state.value = action.payload
-            console.log(action.payload)
     },
     setLoading: (state) => {
       state.loading = !state.loading;
@@ -33,7 +32,6 @@ export const mainSlices = createSlice({
     },
     setBook: (state, action) => {
       state.book.push(action.payload);
-      console.log(state.book);
     },
   },
 });

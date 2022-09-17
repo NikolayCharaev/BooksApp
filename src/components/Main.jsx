@@ -4,7 +4,7 @@ import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
 
-import { setLoading,setError,setErrorText, setCounterPagination, setBook, setValue } from '../redux/mainSlices/mainSlice';
+import { setLoading,setError,setErrorText, setCounterPagination, setBook, setValue } from '../redux/requestSlices/mainSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../scss/styles.scss';
@@ -32,7 +32,7 @@ const Header = () => {
     if (e.key === 'Enter' && value.length > 0) {
       searchBook(e.target.value);
       // setValue('')
-      dispatch(setValue(''))
+      // dispatch(setValue(''))
     }
   }
 
