@@ -115,6 +115,7 @@ left: 41%;
   flex-direction: column;
   align-items: center;
   position: absolute;
+  z-index: 1000;
   top: 220px;
   left: 19%;
   .error__image{
@@ -154,4 +155,9 @@ a{
 
 .block{
   display: block;
+}
+
+.error__center{
+  width: 100%;
+  left: 0;
 }

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import CartItem from './CartItem';
 import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
-import clearIcon from '../images/closeIcon.png'
+
 import {
   setLoading,
   setError,
@@ -77,9 +77,7 @@ const Header = () => {
             <div className='input__wrapper'>
             <button type='button' className={value.length > 0 ? 'icon-clear block' : 'icon-clear none'} onClick={() => {
             dispatch(setValue(''))
-
-          }}>
-          ╳</button>
+          }}>╳</button>
             <input
             className="search__input"
             type="text"
