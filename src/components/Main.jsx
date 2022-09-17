@@ -4,7 +4,7 @@ import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
 
-import { setLoading,setError,setErrorText } from '../redux/mainSlices/mainSlice';
+import { setLoading,setError,setErrorText, setCounterPagination, setBook, setValue } from '../redux/mainSlices/mainSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../scss/styles.scss';
@@ -13,22 +13,26 @@ const Header = () => {
   const loading = useSelector(state => state.mainSlices.loading)
   const error = useSelector(state => state.mainSlices.error)
   const errorText = useSelector(state => state.mainSlices.errorText)
+  const counterPagination = useSelector(state => state.mainSlices.counterPagination)
+  const value = useSelector(state => state.mainSlices.value)
+  // const book = useSelector(state => state.mainSlices.book)
   
   const dispatch = useDispatch()
 
 
 
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
   const [book, setBook] = useState([]);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(false);
   // const [errorText, setErrorText] = useState('')
-  const [counterPagination, setCounterPagination] = useState(8);
+  // const [counterPagination, setCounterPagination] = useState(8);
 
   function buttonPress(e) {
     if (e.key === 'Enter' && value.length > 0) {
       searchBook(e.target.value);
       // setValue('')
+      dispatch(setValue(''))
     }
   }
 
@@ -46,7 +50,7 @@ const Header = () => {
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
       .then((elem) => {
         const data = elem.data.items;
-        setBook(
+      setBook(
           data
             .filter(
               (elem) =>
@@ -63,10 +67,9 @@ const Header = () => {
         dispatch(setLoading()) // cat
         dispatch(setErrorText('Произошла ошибка... ' + err))
         dispatch(setError()) // cat
-        setValue('')
+        dispatch(setValue(''))
         setTimeout(() => {
           dispatch(setError())
-
         },5000)
       });
   }
@@ -83,7 +86,8 @@ const Header = () => {
             value={value}
             maxLength="20"
             onChange={(e) => {
-              setValue(e.target.value);
+              // setValue(e.target.value);
+              dispatch(setValue(e.target.value))
             }}
             onKeyPress={buttonPress}
           />
@@ -116,7 +120,8 @@ const Header = () => {
             <button
               className="more__button"
               onClick={() => {
-                setCounterPagination((counterPagination) => (counterPagination += 4));
+                dispatch(setCounterPagination())
+                // setCounterPagination((counterPagination) => (counterPagination += 4));
               }}>
               еще
             </button>

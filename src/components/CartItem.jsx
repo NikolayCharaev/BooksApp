@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+// import { useSelector } from "react-redux";
 
-const CartItem = ({ book }) => {
+const CartItem = ({book}) => {
+  // const book = useSelector(state => state.mainSlices.book)
   return (
     <>
       {
