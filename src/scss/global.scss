@@ -74,24 +74,23 @@ p {
 
 .input__wrapper{
   position: relative;
-}
+
 .icon-clear{
   position: absolute;
   background: transparent;
-  background-image: url(../images/closeIcon.png);
-  background-position: top center;
+  // background-image: url(../images/closeIcon.png);
   background-size: cover;
   background-repeat: no-repeat;
   border: none;
-  top: 6px;
-  width: 20px;
-  height: 20px;
-  right: 59px;
+  top: 4px;
+  max-width: 30px;
+  min-height: 12px;
+  right: 67px;
   cursor: pointer;
   z-index: 1000;
   }
   
-
+}
 
 
 .white {

@@ -79,7 +79,7 @@ const Header = () => {
             dispatch(setValue(''))
 
           }}>
-          </button>
+          ╳</button>
             <input
             className="search__input"
             type="text"
@@ -92,7 +92,6 @@ const Header = () => {
             }}
             onKeyPress={buttonPress}
           />
-     
           <button
             type="submit"
             className="search__button"
