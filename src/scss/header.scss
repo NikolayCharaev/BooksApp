@@ -13,7 +13,16 @@
   .header__top {
     display: flex;
     justify-content: center;
+   
+    .input__wrapper{
+        .search__input{
+          @media(max-width:512px) {
+            width: 288px;
+          }
+        }
 
+    }
+  
   
   }
 
@@ -41,9 +50,15 @@
         top: 16px;
         width: 15px;
         height: 15px;
-        right: 20px;
+        right: 108px;
         cursor: pointer;
         z-index: 1000;
+
+
+        @media(max-width: 500px) {
+          top: 10px;
+          right: 4px;
+        }
       }
   
     }

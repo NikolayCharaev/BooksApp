@@ -92,7 +92,7 @@ const Header = () => {
             }}
             onKeyPress={buttonPress}
           />
-            </div>
+     
           <button
             type="submit"
             className="search__button"
@@ -103,6 +103,7 @@ const Header = () => {
             }}>
             найти
           </button>
+          </div>
         </div>
 
         <div className={book.length > 0 ? 'cart' : ''}>
