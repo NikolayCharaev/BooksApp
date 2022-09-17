@@ -9,12 +9,12 @@ const initialState = {
   book: [],
 };
 
-export const mainSlices = createSlice({
+export const requestSlices = createSlice({
   name: 'main',
   initialState,
   reducers: {
     setValue: (state, action) => {
-            state.value = action.payload
+      state.value = action.payload;
     },
     setLoading: (state) => {
       state.loading = !state.loading;
@@ -31,11 +31,11 @@ export const mainSlices = createSlice({
       state.counterPagination += 4;
     },
     setBook: (state, action) => {
-      state.book.push(action.payload);
+      state.book = action.payload;
     },
   },
 });
 
 export const { setValue, setLoading, setError, setErrorText, setCounterPagination, setBook } =
-  mainSlices.actions;
-export default mainSlices.reducer;
+  requestSlices.actions;
+export default requestSlices.reducer;

@@ -1,9 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit'
-import mainSlices from './requestSlices/mainSlice'
+import requestSlices from './requestSlices/requestSlices'
 
 
 export const store = configureStore({
     reducer: {
-        mainSlices: mainSlices
+        requestSlices: requestSlices
     }
 })
