@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/BooksApp/static/css/main.bfca2f41.css",
-    "main.js": "/BooksApp/static/js/main.9e775275.js",
+    "main.css": "/BooksApp/static/css/main.9b889cb5.css",
+    "main.js": "/BooksApp/static/js/main.97b0ff08.js",
     "static/media/header-bg.jpeg": "/BooksApp/static/media/header-bg.904d6bc9c7c435bdd942.jpeg",
     "static/media/котик2.jpeg": "/BooksApp/static/media/котик2.1341dc772d0dd606af49.jpeg",
     "static/media/catGif.gif": "/BooksApp/static/media/catGif.619602dc95e4e63b4815.gif",
     "index.html": "/BooksApp/index.html",
-    "main.bfca2f41.css.map": "/BooksApp/static/css/main.bfca2f41.css.map",
-    "main.9e775275.js.map": "/BooksApp/static/js/main.9e775275.js.map"
+    "main.9b889cb5.css.map": "/BooksApp/static/css/main.9b889cb5.css.map",
+    "main.97b0ff08.js.map": "/BooksApp/static/js/main.97b0ff08.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfca2f41.css",
-    "static/js/main.9e775275.js"
+    "static/css/main.9b889cb5.css",
+    "static/js/main.97b0ff08.js"
   ]
 }
