@@ -39,6 +39,7 @@
     .input__wrapper{
       position: relative;
 
+
       .icon-clear{
         position: absolute;
         background: transparent;
@@ -55,9 +56,9 @@
         z-index: 1000;
 
 
-        @media(max-width: 500px) {
-          top: 10px;
-          right: 4px;
+        @media(max-width: 375px) {
+          top: 12px;
+          right: 85px;
         }
       }
   
@@ -95,15 +96,15 @@
     }
     button{
         padding: 20px;
-        font-size: 21px;
+        font-size: 20px;
 
         @media(max-width:1236px) {
           padding: 10px;
         }
 
         @media(max-width: 400px) {
-          padding: 14px;
-          font-size: 15px;
+          padding: 10px;
+          font-size: 20px;
         }
     }
   }
