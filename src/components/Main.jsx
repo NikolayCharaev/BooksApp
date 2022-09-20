@@ -44,10 +44,9 @@ const Header = () => {
   }, [counterPagination]);
 
   async function searchBook() {
-    const key='key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     dispatch(setLoading());
     await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${process.env.REACT_APP_key}&maxResults=${40}`)
       .then((elem) => {
         const data = elem.data.items;
         dispatch(
