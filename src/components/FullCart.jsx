@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import cat from '../images/котик2.jpeg';
 import catGif from '../images/catGif.gif';
-import catError from '../images/catError.gif';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setFullCart, setDeleteCart, setText } from '../redux/cartRendering/cartRenderingSlice';
@@ -16,9 +15,7 @@ const FullCart = () => {
 
   const dispatch = useDispatch();
   const { id } = useParams();
-
    const errorText = useSelector((state) => state.requestSlices.errorText);
-
   useEffect(() => {
     async function fetchCart() {
       try {
@@ -94,7 +91,7 @@ const FullCart = () => {
     return (
       <div className="container">
           <div className="error__wrapper error__center">
-            <img className="error__image " src={catError} alt="" />
+            <img className="error__image " src={catGif} alt="" />
             <p className="text__error">{errorText}</p>
           </div>
       </div>

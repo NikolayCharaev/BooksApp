@@ -2,6 +2,7 @@
 
 .header {
   padding-top: 40px;
+  position: relative;
 
 
   .header__logo {
@@ -11,6 +12,7 @@
   }
 
   .header__top {
+    position: relative;
     display: flex;
     justify-content: center;
    
@@ -27,8 +29,25 @@
           background-size: cover;
         }
 
+       
     }
-  
+    .left{
+      position: absolute;
+      left: 0;
+      background-color: royalblue;
+      padding: 5px 30px;
+      border-radius: 10px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: block;
+      margin-right: 10px;
+      text-decoration: none;
+      &:hover {
+        background-color: rgb(48, 79, 173);
+      }
+    }
   
   }
 

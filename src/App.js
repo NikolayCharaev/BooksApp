@@ -10,6 +10,7 @@ function App() {
           <Routes>
             <Route path='/BooksApp' element={<Header/>}/> 
             <Route path='/' element={<Header/>}/> 
+            <Route path='/home' element={<App/>}/> 
             <Route path='/cart/:id' element={<FullCart/>}/> 
             <Route path='/asd' element={<CartItem/>}/>
           </Routes>

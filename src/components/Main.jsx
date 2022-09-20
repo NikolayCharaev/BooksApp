@@ -3,6 +3,9 @@ import CartItem from './CartItem';
 import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
+import { useNavigate } from 'react-router-dom';
+import bookLogo from '../images/bookLogo.png'
+
 
 import {
   setLoading,
@@ -15,15 +18,21 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../scss/styles.scss';
-const Header = () => {
+import { Link } from 'react-router-dom';
 
+
+
+const Header = () => {
   const loading = useSelector((state) => state.requestSlices.loading),
     error = useSelector((state) => state.requestSlices.error),
     errorText = useSelector((state) => state.requestSlices.errorText),
     counterPagination = useSelector((state) => state.requestSlices.counterPagination),
     value = useSelector((state) => state.requestSlices.value),
     book = useSelector((state) => state.requestSlices.book),
-    dispatch = useDispatch();
+
+
+    dispatch = useDispatch(),
+    navigate = useNavigate();
 
 
   function buttonPress(e) {
@@ -72,34 +81,47 @@ const Header = () => {
 
   return (
     <div className="header">
+       {book.length > 0 ? (
+              <>
+              <a href='/' className=" ">
+                <img className='book__logo' src={bookLogo} alt="" />
+              </a>
+              </>
+            ) : null}
       <div className="container">
         <div className={book.length > 0 ? 'header__top' : 'header__center'}>
-            <div className='input__wrapper'>
-            <button type='button' className={value.length > 0 ? 'icon-clear block' : 'icon-clear none'} onClick={() => {
-            dispatch(setValue(''))
-          }}>╳</button>
+          <div className="input__wrapper">
+            <button
+              type="button"
+              className={value.length > 0 ? 'icon-clear block' : 'icon-clear none'}
+              onClick={() => {
+                dispatch(setValue(''));
+              }}>
+              ╳
+            </button>
             <input
-            className="search__input"
-            type="text"
-            required
-            placeholder="поиск книги..."
-            value={value}
-            maxLength="20"
-            onChange={(e) => {
-              dispatch(setValue(e.target.value));
-            }}
-            onKeyPress={buttonPress}
-          />
-          <button
-            type="submit"
-            className="search__button"
-            onClick={(e) => {
-              if (value.length > 0) {
-                searchBook();
-              }
-            }}>
-            найти
-          </button>
+              className="search__input"
+              type="text"
+              required
+              placeholder="поиск книги..."
+              value={value}
+              maxLength="20"
+              onChange={(e) => {
+                dispatch(setValue(e.target.value));
+              }}
+              onKeyPress={buttonPress}
+            />
+            <button
+              type="submit"
+              className="search__button"
+              onClick={(e) => {
+                if (value.length > 0) {
+                  searchBook();
+                }
+              }}>
+              найти
+            </button>
+ 
           </div>
         </div>
 

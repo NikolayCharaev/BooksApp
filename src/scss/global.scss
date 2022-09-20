@@ -56,6 +56,8 @@ p {
   }
 }
 
+
+
 .search__input {
   width: 700px;
   padding: 4px;
@@ -92,6 +94,10 @@ p {
   
 }
 
+.left{
+  // position: absolute;
+  
+}
 
 .white {
   color: #fff;
@@ -160,4 +166,23 @@ a{
 .error__center{
   width: 100%;
   left: 0;
+}
+
+.book__logo{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+
+
+  @media(max-width:730px) {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media(max-width:560px) {
+    top: 10px;
+    left: 10px;
+  }
 }
