@@ -4,7 +4,8 @@ import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
 import bookLogo from '../images/bookLogo.png'
-
+import '../scss/styles.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   setLoading,
@@ -14,11 +15,6 @@ import {
   setBook,
   setValue,
 } from '../redux/requestSlices/requestSlices';
-import { useSelector, useDispatch } from 'react-redux';
-
-import '../scss/styles.scss';
-
-
 
 const Header = () => {
   const loading = useSelector((state) => state.requestSlices.loading),
