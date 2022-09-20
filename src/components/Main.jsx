@@ -3,7 +3,6 @@ import CartItem from './CartItem';
 import axios from 'axios';
 import cat from '../images/catGif.gif';
 import catError from '../images/catError.gif';
-import { useNavigate } from 'react-router-dom';
 import bookLogo from '../images/bookLogo.png'
 
 
@@ -18,7 +17,6 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 import '../scss/styles.scss';
-import { Link } from 'react-router-dom';
 
 
 
@@ -30,9 +28,7 @@ const Header = () => {
     value = useSelector((state) => state.requestSlices.value),
     book = useSelector((state) => state.requestSlices.book),
 
-
-    dispatch = useDispatch(),
-    navigate = useNavigate();
+    dispatch = useDispatch();
 
 
   function buttonPress(e) {
@@ -48,7 +44,7 @@ const Header = () => {
   }, [counterPagination]);
 
   async function searchBook() {
-    const key = 'key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
+    const key='key=AIzaSyCvrncsNO0-RJ8FlQbvTI2jAk5NXtw0-GY';
     dispatch(setLoading());
     await axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${value}&${key}&maxResults=${40}`)
@@ -83,7 +79,7 @@ const Header = () => {
     <div className="header">
        {book.length > 0 ? (
               <>
-              <a onClick={() => {dispatch(setLoading())}} href='/' className=" ">
+              <a onClick={() => {dispatch(setLoading())}} href='https://nikolaycharaev.github.io/BooksApp/' className=" ">
                 <img className='book__logo' src={bookLogo} alt="" />
               </a>
               </>
