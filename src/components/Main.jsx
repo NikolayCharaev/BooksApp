@@ -79,7 +79,7 @@ const Header = () => {
     <div className="header">
        {book.length > 0 ? (
               <>
-              <a onClick={() => {dispatch(setLoading())}} href='https://nikolaycharaev.github.io/BooksApp/' className=" ">
+              <a onClick={() => {dispatch(setLoading())}} href='/' className=" ">
                 <img className='book__logo' src={bookLogo} alt="" />
               </a>
               </>
