@@ -83,7 +83,7 @@ const Header = () => {
     <div className="header">
        {book.length > 0 ? (
               <>
-              <a href='/' className=" ">
+              <a onClick={() => {dispatch(setLoading())}} href='/' className=" ">
                 <img className='book__logo' src={bookLogo} alt="" />
               </a>
               </>
