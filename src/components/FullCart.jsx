@@ -73,7 +73,7 @@ const FullCart = () => {
             </div>
           </div>
           <div className="cart__right">
-            <h1 className="text__right">{text ? text : 'Описание отсутствует :('}</h1>
+            <h1 className="text__right">{text ? new DOMParser().parseFromString(text,'text/html').body.textContent : 'Описание отсутствует :('}</h1>
           </div>
           <div className="wrapper__button">
             <a
