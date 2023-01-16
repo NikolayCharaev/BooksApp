@@ -78,6 +78,7 @@ const FullCart = () => {
           <div className="wrapper__button">
             <a
               className="more__button"
+              
               href={cartInfo.previewLink}
               target="_blank"
               rel="noreferrer">
